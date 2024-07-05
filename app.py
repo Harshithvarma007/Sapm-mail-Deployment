@@ -10,11 +10,12 @@ model_filename = 'model.h5'
 
 # Function to load vectorizer and model
 def load_model_and_vectorizer():
-    if os.path.exists(vectorizer_filename) and os.path.exists(model_filename):
+    try:
         loaded_vectorizer = joblib.load(vectorizer_filename)
         loaded_model = tf.keras.models.load_model(model_filename)
         return loaded_vectorizer, loaded_model
-    else:
+    except Exception as e:
+        print("Error loading vectorizer or model:", e)
         return None, None
 
 # Function to predict email content
@@ -91,6 +92,7 @@ if st.button("Predict"):
             st.write("Please enter the email content.")
     else:
         st.write("Model and vectorizer not found. Please train the model first.")
+
 # Add GitHub, Kaggle, and Medium icons with links
 st.markdown("---")
 st.markdown("### Resources regarding the above project can be found below:")
