@@ -1,5 +1,4 @@
-streamlit
-joblib
-tensorfow
-os
+streamlit==1.36.0
+joblib==1.4.2
+tensorflow>=2.0
 PIL
