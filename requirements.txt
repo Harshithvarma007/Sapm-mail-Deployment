@@ -2,3 +2,4 @@ streamlit==1.36.0
 joblib==1.4.2
 tensorflow>=2.0
 Pillow
+scikit-learn  # This is often required for CountVectorizer
